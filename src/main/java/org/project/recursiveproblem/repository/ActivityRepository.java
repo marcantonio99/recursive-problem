@@ -10,5 +10,9 @@ import java.util.List;
 public interface ActivityRepository extends JpaRepository<Activity, Long> {
 
     // Query personalizzata per trovare tutte le attività in base allo stato di lavoro dell'attività e dello stato di lavoro dell'attività genitore
-    List<Activity> findAllByWorkedAndParentActivity_Worked(Activity.WorkStatus worked, Activity.WorkStatus parentWorked);
+    // Trova tutte le attività figlie di un'attività padre con un dato stato di lavoro
+    List<Activity> findAllByParentActivityAndWorked(Activity parentActivity, Activity.WorkStatus worked);
+
+    // Trova tutte le attività figlie di un'attività padre con un dato stato di lavoro dell'attività genitore
+    List<Activity> findAllByParentActivityAndParentActivity_Worked(Activity parentActivity, Activity.WorkStatus parentWorked);
 }
