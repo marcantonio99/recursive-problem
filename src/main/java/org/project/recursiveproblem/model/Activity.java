@@ -11,7 +11,7 @@ public class Activity {
     @Enumerated(EnumType.STRING)
     private WorkStatus worked; // Lo stato del lavoro dell'attività, può essere YES o NO
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "parent_activity")
+    @JoinColumn(name = "parent_activity_id")
     private Activity parentActivity; // Riferimento all'attività padre (attività di livello superiore)
 
     // getter e setter
